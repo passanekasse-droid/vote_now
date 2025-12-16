@@ -295,9 +295,6 @@ button[type="submit"]:hover {
     opacity: 0.9;
 }
 
-/* ===================================
-   RÉSULTATS
-   =================================== */
 .gagnant {
     background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
     padding: 25px;
