@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteNow - Administration</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗳️ VoteNow</h1>
+            <p class="tagline">Panneau d'administration</p>
+            <a href="../index.html" class="btn-retour">← Retour à l'accueil</a>
+        </header>
+
+        <main>
+            <!-- Formulaire de connexion -->
+            <section id="section-login" class="section">
+                <h2>🔐 Connexion administrateur</h2>
+                <form id="form-login" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur :</label>
+                        <input type="text" id="username" required placeholder="saisir nom d'utilisateur">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe :</label>
+                        <input type="password" id="password" required placeholder="saisir mot de passe">
+                    </div>
+                    <button type="submit">🔓 Se connecter</button>
+                    <div id="message-login" class="message"></div>
+                </form>
+            </section>
+
+            <!-- Panneau d'administration (caché par défaut) -->
+            <section id="section-admin" class="section hidden">
+                <div class="admin-header">
+                    <h2>Gestion des candidats</h2>
+                    <button id="btn-deconnexion" class="btn-deconnexion">🚪 Déconnexion</button>
+                </div>
+                
+                <form id="form-candidat" class="admin-form">
+                    <div class="form-group">
+                        <label for="nom-candidat">Nom du candidat :</label>
+                        <input type="text" id="nom-candidat" required placeholder="saisir le Nom du candidat ">
+                    </div>
+                    <div class="form-group">
+                        <label for="slogan-candidat">Slogan de campagne :</label>
+                        <input type="text" id="slogan-candidat" required placeholder="Pour un avenir meilleur">
+                    </div>
+                    <button type="submit">➕ Ajouter le candidat</button>
+                </form>
+                
+                <h3 class="liste-titre">Liste des candidats</h3>
+                <ul id="liste-candidats" class="liste-candidats"></ul>
+                
+                <button id="btn-reset" class="btn-reset">🔄 Réinitialiser l'élection</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 VoteNow - Projet pédagogique</p>
+        </footer>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

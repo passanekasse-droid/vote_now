@@ -1,0 +1,497 @@
+/* ===================================
+   RESET ET BASE
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   EN-TÊTE
+   =================================== */
+header {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.btn-retour {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.btn-retour:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   SECTIONS
+   =================================== */
+.section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    color: #667eea;
+    margin-bottom: 25px;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* ===================================
+   BOUTONS D'ACTION (PAGE ACCUEIL)
+   =================================== */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 20px 50px;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.btn-voter {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-admin {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.btn-action:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* ===================================
+   FORMULAIRES
+   =================================== */
+.vote-form,
+.admin-form,
+.login-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.admin-form {
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.login-form {
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* ===================================
+   CARTES CANDIDATS (VOTE)
+   =================================== */
+.candidat-card {
+    display: block;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 3px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+.candidat-card:hover {
+    border-color: #667eea;
+    transform: translateX(5px);
+    background: #f0f0ff;
+}
+
+.candidat-card.selected {
+    border-color: #667eea;
+    background: #e8e8ff;
+}
+
+.candidat-card input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.candidat-card span {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+}
+
+.candidat-card small {
+    display: block;
+    margin-top: 8px;
+    margin-left: 30px;
+    color: #666;
+    font-style: italic;
+}
+
+/* ===================================
+   MESSAGES
+   =================================== */
+.message {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    display: none;
+}
+
+.message.show {
+    display: block;
+}
+
+.message.erreur {
+    background: #ffe6e6;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+}
+
+.message.succes {
+    background: #e6ffe6;
+    color: #2e7d32;
+    border: 2px solid #2e7d32;
+}
+
+/* ===================================
+   STATISTIQUES
+   =================================== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* ===================================
+   RÉSULTATS
+   =================================== */
+.gagnant {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    color: #333;
+}
+
+.gagnant.no-votes {
+    background: #f0f0f0;
+    color: #999;
+}
+
+.resultat-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.resultat-item span {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+}
+
+.barre-container {
+    width: 100%;
+    height: 35px;
+    background-color: #e0e0e0;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.barre {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    color: white;
+    font-weight: 600;
+    min-width: 0;
+}
+
+/* ===================================
+   ADMINISTRATION
+   =================================== */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.admin-header h2 {
+    margin: 0;
+}
+
+.btn-deconnexion {
+    padding: 12px 30px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.btn-deconnexion:hover {
+    background: #b71c1c;
+    transform: scale(1.05);
+}
+
+.liste-titre {
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+.liste-candidats {
+    list-style: none;
+}
+
+.liste-candidats li {
+    padding: 20px;
+    margin-bottom: 15px;
+    background: #f0f0ff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.liste-candidats .empty-message {
+    text-align: center;
+    color: #999;
+    background: #f9f9f9;
+}
+
+.btn-supprimer {
+    padding: 10px 25px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-supprimer:hover {
+    background: #b71c1c;
+    transform: scale(1.05);
+}
+
+.btn-reset {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-reset:hover {
+    background: #f57c00;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    opacity: 0.8;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .btn-retour {
+        position: static;
+        display: inline-block;
+        margin-top: 15px;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2em;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-action {
+        width: 100%;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .admin-header h2 {
+        text-align: center;
+    }
+}
