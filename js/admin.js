@@ -1,19 +1,12 @@
-/**
- * ===================================
- * VoteNow - Page d'administration
- * ===================================
- */
 
-// Identifiants par défaut
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'admin';
 
-// Récupération des données
+
 let candidats = JSON.parse(localStorage.getItem('votenow_candidats')) || [];
 let votes = JSON.parse(localStorage.getItem('votenow_votes')) || {};
 let votants = JSON.parse(localStorage.getItem('votenow_votants')) || [];
 
-// Éléments DOM
 const sectionLogin = document.getElementById('section-login');
 const sectionAdmin = document.getElementById('section-admin');
 const formLogin = document.getElementById('form-login');
@@ -23,18 +16,14 @@ const messageLogin = document.getElementById('message-login');
 const btnDeconnexion = document.getElementById('btn-deconnexion');
 const btnReset = document.getElementById('btn-reset');
 
-/**
- * Sauvegarde les données dans localStorage
- */
+
 function sauvegarderDonnees() {
     localStorage.setItem('votenow_candidats', JSON.stringify(candidats));
     localStorage.setItem('votenow_votes', JSON.stringify(votes));
     localStorage.setItem('votenow_votants', JSON.stringify(votants));
 }
 
-/**
- * Affiche un message à l'utilisateur
- */
+
 function afficherMessage(element, texte, type) {
     element.textContent = texte;
     element.className = `message ${type} show`;
@@ -44,9 +33,7 @@ function afficherMessage(element, texte, type) {
     }, 3000);
 }
 
-/**
- * Vérifie si l'utilisateur est connecté
- */
+
 function verifierConnexion() {
     const isConnected = sessionStorage.getItem('votenow_admin_connected') === 'true';
     
@@ -57,26 +44,19 @@ function verifierConnexion() {
     }
 }
 
-/**
- * Affiche le formulaire de connexion
- */
+
 function afficherFormulaireConnexion() {
     sectionLogin.classList.remove('hidden');
     sectionAdmin.classList.add('hidden');
 }
 
-/**
- * Affiche le panneau d'administration
- */
+
 function afficherPanneauAdmin() {
     sectionLogin.classList.add('hidden');
     sectionAdmin.classList.remove('hidden');
     afficherListeCandidats();
 }
 
-/**
- * Gestion de la connexion
- */
 formLogin.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -92,17 +72,12 @@ formLogin.addEventListener('submit', function(e) {
     }
 });
 
-/**
- * Gestion de la déconnexion
- */
 btnDeconnexion.addEventListener('click', function() {
     sessionStorage.removeItem('votenow_admin_connected');
     afficherFormulaireConnexion();
 });
 
-/**
- * Ajoute un nouveau candidat
- */
+
 formCandidat.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -132,9 +107,6 @@ formCandidat.addEventListener('submit', function(e) {
     this.reset();
 });
 
-/**
- * Affiche la liste des candidats dans l'admin
- */
 function afficherListeCandidats() {
     if (candidats.length === 0) {
         listeCandidats.innerHTML = '<li class="empty-message">Aucun candidat pour le moment</li>';
@@ -148,7 +120,6 @@ function afficherListeCandidats() {
         </li>
     `).join('');
     
-    // Gestion de la suppression
     const boutonsSuppression = listeCandidats.querySelectorAll('.btn-supprimer');
     boutonsSuppression.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -158,9 +129,7 @@ function afficherListeCandidats() {
     });
 }
 
-/**
- * Supprime un candidat
- */
+
 function supprimerCandidat(id) {
     if (confirm('Êtes-vous sûr de vouloir supprimer ce candidat ?')) {
         candidats = candidats.filter(c => c.id !== id);
@@ -170,9 +139,7 @@ function supprimerCandidat(id) {
     }
 }
 
-/**
- * Réinitialise l'élection
- */
+
 btnReset.addEventListener('click', function() {
     if (confirm('⚠️ Êtes-vous sûr de vouloir réinitialiser toute l\'élection ?\n\nCette action supprimera tous les candidats et votes.')) {
         candidats = [];
@@ -184,7 +151,7 @@ btnReset.addEventListener('click', function() {
     }
 });
 
-// Initialisation
+
 document.addEventListener('DOMContentLoaded', function() {
     verifierConnexion();
 });

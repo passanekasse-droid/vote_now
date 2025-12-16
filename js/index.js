@@ -1,28 +1,14 @@
-/**
- * ===================================
- * VoteNow - Page d'accueil (Résultats)
- * ===================================
- */
 
-// Récupération des données
 let candidats = JSON.parse(localStorage.getItem('votenow_candidats')) || [];
 let votes = JSON.parse(localStorage.getItem('votenow_votes')) || {};
 let votants = JSON.parse(localStorage.getItem('votenow_votants')) || [];
-
-/**
- * Calcule le total des votes
- */
 function calculerTotalVotes() {
     return Object.values(votes).reduce((total, nb) => total + nb, 0);
 }
 
-/**
- * Affiche les résultats de l'élection
- */
 function afficherResultats() {
     const totalVotes = calculerTotalVotes();
     
-    // Mise à jour des statistiques
     document.getElementById('total-votes').textContent = totalVotes;
     document.getElementById('total-candidats').textContent = candidats.length;
     document.getElementById('total-votants').textContent = votants.length;
@@ -43,7 +29,6 @@ function afficherResultats() {
     
     let html = '<div class="resultats-liste">';
 
-    // Tri des candidats par nombre de votes
     const candidatsTries = [...candidats].sort((a, b) => 
         (votes[b.id] || 0) - (votes[a.id] || 0)
     );
@@ -67,7 +52,7 @@ function afficherResultats() {
     html += '</div>';
     resultatsContainer.innerHTML = html;
     
-    // Affichage du gagnant
+
     if (totalVotes > 0) {
         const gagnant = candidatsTries[0];
         gagnantEl.textContent = `🏆 Gagnant : ${gagnant.nom} avec ${votes[gagnant.id]} voix`;
@@ -78,11 +63,9 @@ function afficherResultats() {
     }
 }
 
-// Affichage initial des résultats
 document.addEventListener('DOMContentLoaded', function() {
     afficherResultats();
     
-    // Mise à jour automatique toutes les 5 secondes
     setInterval(() => {
         candidats = JSON.parse(localStorage.getItem('votenow_candidats')) || [];
         votes = JSON.parse(localStorage.getItem('votenow_votes')) || {};

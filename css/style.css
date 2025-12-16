@@ -1,6 +1,4 @@
-/* ===================================
-   RESET ET BASE
-   =================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,9 +17,7 @@ body {
     margin: 0 auto;
 }
 
-/* ===================================
-   EN-TÊTE
-   =================================== */
+
 header {
     background: white;
     padding: 30px;
@@ -62,9 +58,6 @@ h1 {
     transform: translateY(-2px);
 }
 
-/* ===================================
-   SECTIONS
-   =================================== */
 .section {
     background: white;
     padding: 40px;
@@ -83,9 +76,6 @@ h2 {
     text-align: center;
 }
 
-/* ===================================
-   BOUTONS D'ACTION (PAGE ACCUEIL)
-   =================================== */
 .action-buttons {
     display: flex;
     gap: 20px;
@@ -120,9 +110,6 @@ h2 {
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* ===================================
-   FORMULAIRES
-   =================================== */
 .vote-form,
 .admin-form,
 .login-form {
@@ -191,9 +178,6 @@ button[type="submit"]:hover {
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 
-/* ===================================
-   CARTES CANDIDATS (VOTE)
-   =================================== */
 .candidat-card {
     display: block;
     padding: 20px;
@@ -236,9 +220,6 @@ button[type="submit"]:hover {
     font-style: italic;
 }
 
-/* ===================================
-   MESSAGES
-   =================================== */
 .message {
     padding: 15px;
     border-radius: 10px;
@@ -265,9 +246,6 @@ button[type="submit"]:hover {
     border: 2px solid #2e7d32;
 }
 
-/* ===================================
-   STATISTIQUES
-   =================================== */
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -348,10 +326,6 @@ button[type="submit"]:hover {
     font-weight: 600;
     min-width: 0;
 }
-
-/* ===================================
-   ADMINISTRATION
-   =================================== */
 .admin-header {
     display: flex;
     justify-content: space-between;
@@ -442,10 +416,6 @@ button[type="submit"]:hover {
 .btn-reset:hover {
     background: #f57c00;
 }
-
-/* ===================================
-   FOOTER
-   =================================== */
 footer {
     text-align: center;
     margin-top: 30px;
@@ -453,9 +423,7 @@ footer {
     opacity: 0.8;
 }
 
-/* ===================================
-   RESPONSIVE
-   =================================== */
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.8em;
